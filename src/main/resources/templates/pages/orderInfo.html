@@ -1,0 +1,62 @@
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/css/ionicons.min.css">
+    <link rel="stylesheet" href="/lib/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/lib/css/skin-blue.min.css">
+
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <script src="/lib/js/jquery.min.js"></script>
+</head>
+<body>
+<table id="example2" class="table table-bordered table-hover dataTable"
+       role="grid" aria-describedby="example2_info">
+    <input type="hidden" id="order_id" th:value="${id}"/>
+    <thead>
+    <tr role="row">
+        <th class="text-center bg-light-blue-gradient" tabindex="0" rowspan="1" colspan="1">
+            id
+        </th>
+        <th class="text-center bg-light-blue-gradient" tabindex="0" rowspan="1" colspan="1">
+            상태
+        </th>
+        <th class="text-center bg-light-blue-gradient" tabindex="0" rowspan="1" colspan="1">
+            주문타입
+        </th>
+        <th class="text-center bg-light-blue-gradient" tabindex="0" rowspan="1" colspan="1">
+            배송주소
+        </th>
+        <th class="text-center bg-light-blue-gradient" tabindex="0" rowspan="1" colspan="1">
+            수취인
+        </th>
+        <th class="text-center bg-light-blue-gradient" tabindex="0" rowspan="1" colspan="1">
+            납부방법
+        </th>
+        <th class="text-center bg-light-blue-gradient" tabindex="0" rowspan="1" colspan="1">
+            총 가격
+        </th>
+        <th class="text-center bg-light-blue-gradient" tabindex="0" rowspan="1" colspan="1">
+            총 수량
+        </th>
+        <th class="text-center bg-light-blue-gradient" tabindex="0" rowspan="1" colspan="1">
+            주문일자
+        </th>
+    </tr>
+    </thead>
+    <tbody id="itemList">
+    </tbody>
+</table>
+<script src="/app/orderInfo.js"></script>
+</body>
+</html>

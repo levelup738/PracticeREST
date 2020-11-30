@@ -38,7 +38,6 @@ public class OrderGroupApiLogicService extends BaseService<OrderGroupApiRequest,
                             .orderAt(LocalDateTime.now())
                             .user(userRepository.getOne(body.getUserId()))
                             .build();
-
                     return orderGroup;
                 })
                 .map(newOrderGroup -> baseRepository.save(newOrderGroup))
@@ -55,13 +54,11 @@ public class OrderGroupApiLogicService extends BaseService<OrderGroupApiRequest,
 
     @Override
     public Header<OrderGroupApiResponse> update(Header<OrderGroupApiRequest> request) {
-
         return null;
     }
 
     @Override
     public Header delete(Long id) {
-
         return baseRepository.findById(id)
                 .map(orderGroup -> {
                     baseRepository.delete(orderGroup);
@@ -71,7 +68,6 @@ public class OrderGroupApiLogicService extends BaseService<OrderGroupApiRequest,
     }
 
     public Header<OrderGroupApiResponse> response(OrderGroup orderGroup){
-
         OrderGroupApiResponse body = OrderGroupApiResponse.builder()
                 .id(orderGroup.getId())
                 .status(orderGroup.getStatus())

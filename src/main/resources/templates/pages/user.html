@@ -116,7 +116,7 @@
                                             <tbody id="itemList">
                                             <tr role="row" class="odd" v-for="dto in itemList">
                                                 <td class="text-center">{{dto.id}}</td>
-                                                <td class="text-center">{{dto.account}}</td>
+                                                <td class="text-center"><a href="javascript:;" onclick="showOrderInfo(this)">{{dto.id}}-{{dto.account}}</a></td>
                                                 <td class="text-center">{{dto.status}}</td>
                                                 <td class="text-center">{{dto.email}}</td>
                                                 <td class="text-center">{{dto.phone_number}}</td>

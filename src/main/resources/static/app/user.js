@@ -127,3 +127,14 @@
     }
 
 })(jQuery);
+
+const showOrderInfo = function (el){
+    //const id = document.querySelector('#item-id').innerText;
+    //const id = el.closest('.itemList').innerText;
+    const htmlText = el.closest('.text-center').innerText;
+    const id = htmlText.split('-')[0];
+    //console.log(id);
+    const url = '/pages/user/'+id+'/orderInfo';
+    window.open(url, '주문목록', 'resizable=no width=600 height=500');
+    return false;
+}

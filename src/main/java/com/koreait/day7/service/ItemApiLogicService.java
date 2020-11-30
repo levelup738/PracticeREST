@@ -25,7 +25,6 @@ public class ItemApiLogicService extends BaseService<ItemApiRequest, ItemApiResp
 
     @Override
     public Header<ItemApiResponse> create(Header<ItemApiRequest> request) {
-
         return Optional.ofNullable(request.getData())
                 .map(body ->{
                     Item item = Item.builder()
@@ -48,7 +47,6 @@ public class ItemApiLogicService extends BaseService<ItemApiRequest, ItemApiResp
 
     @Override
     public Header<ItemApiResponse> read(Long id) {
-
         return baseRepository.findById(id)
                 .map(item -> response(item))
                 .orElseGet(()-> Header.ERROR("데이터 없음"));
@@ -56,14 +54,11 @@ public class ItemApiLogicService extends BaseService<ItemApiRequest, ItemApiResp
 
     @Override
     public Header<ItemApiResponse> update(Header<ItemApiRequest> request) {
-
         return null;
-
     }
 
     @Override
     public Header delete(Long id) {
-
         return baseRepository.findById(id)
                 .map(item -> {
                     baseRepository.delete(item);
@@ -73,7 +68,6 @@ public class ItemApiLogicService extends BaseService<ItemApiRequest, ItemApiResp
     }
 
     public Header<ItemApiResponse> response(Item item){
-
         ItemApiResponse body = ItemApiResponse.builder()
                 .id(item.getId())
                 .status(String.valueOf(item.getStatus()))
@@ -86,7 +80,6 @@ public class ItemApiLogicService extends BaseService<ItemApiRequest, ItemApiResp
                 .unregisteredAt(item.getUnregisteredAt())
                 .partnerId(item.getPartner().getId())
                 .build();
-
         return Header.OK(body);
     }
 }

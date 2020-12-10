@@ -25,15 +25,13 @@ import java.util.Optional;
 @RequestMapping("/api/user")    // localhost:9090/api/user
 @RequiredArgsConstructor
 public class UserApiController extends CrudController<UserApiRequest, UserApiResponse, Users> {
-
     private final UserApiLogicService userApiLogicService;
-
-    @GetMapping("")
-    public Header<List<UserApiResponse>> findAll(@PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC)Pageable pageable){
+    @GetMapping("") // localhost:9090/api/user
+    public Header<List<UserApiResponse>> findAll(@PageableDefault(sort = {"id"},
+            direction = Sort.Direction.DESC)Pageable pageable){
         log.info("{}", pageable);
         return userApiLogicService.search(pageable);
     }
-
     @GetMapping("/{id}/orderInfo")  // localhost:9090/api/user/21/orderInfo
     @Transactional
     public Header<UserOrderInfoApiResponse> orderInfo(@PathVariable Long id){

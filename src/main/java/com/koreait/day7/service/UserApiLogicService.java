@@ -23,24 +23,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
-
+/*
+    1. request data
+    2. user 객체 생성
+    3. 생성된 객체 -> UserApiResponse 로 return
+ */
 @Service
 @RequiredArgsConstructor
 public class UserApiLogicService extends BaseService<UserApiRequest, UserApiResponse, Users> {
-    /*
-        1. request data
-        2. user 객체 생성
-        3. 생성된 객체 -> UserApiResponse 로 return
-     */
-
     private final OrderGroupApiLogicService orderGroupApiLogicService;
     private final ItemApiLogicService itemApiLogicService;
-
     @Override
     public Header<UserApiResponse> create(Header<UserApiRequest> request) {
         // 1. request data
         UserApiRequest userApiRequest = request.getData();
-
         // 2. Users 객체 생성
         Users user = Users.builder()
                 .account(userApiRequest.getAccount())
